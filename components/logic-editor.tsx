@@ -107,6 +107,7 @@ interface LogicEditorProps {
 interface BlockInstance {
   id: string
   blockId: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   inputs: Record<string, any>
 }
 
@@ -119,7 +120,7 @@ export default function LogicEditor({ onUpdateCode }: LogicEditorProps) {
   const addBlock = (blockId: string) => {
     const blockTemplate = LOGIC_BLOCKS.find((b) => b.id === blockId)
     if (!blockTemplate) return
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
     const inputs: Record<string, any> = {}
     blockTemplate.inputs?.forEach((input) => {
       inputs[input.name] = input.defaultValue
@@ -138,7 +139,7 @@ export default function LogicEditor({ onUpdateCode }: LogicEditorProps) {
   const removeBlock = (id: string) => {
     setBlocks(blocks.filter((block) => block.id !== id))
   }
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   const updateBlockInput = (blockId: string, inputName: string, value: any) => {
     setBlocks(
       blocks.map((block) =>

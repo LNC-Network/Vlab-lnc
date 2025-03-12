@@ -49,6 +49,7 @@ import * as LucideIcons from "lucide-react"
 
 // Dynamic icon component
 const DynamicIcon = ({ name }: { name: string }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const IconComponent = (LucideIcons as any)[name.charAt(0).toUpperCase() + name.slice(1)] || LucideIcons.HelpCircle
   return <IconComponent className="h-5 w-5" />
 }
@@ -59,15 +60,15 @@ interface WidgetPanelProps {
 
 export default function WidgetPanel({ onAddWidget }: WidgetPanelProps) {
   const [searchQuery, setSearchQuery] = useState("")
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleDragStart = (e: React.DragEvent, widget: any) => {
     e.dataTransfer.setData("widget", JSON.stringify(widget))
   }
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleWidgetClick = (widget: any) => {
     onAddWidget(widget)
   }
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   const filterWidgets = (widgets: any[]) => {
     if (!searchQuery) return widgets
     return widgets.filter((w) => w.name.toLowerCase().includes(searchQuery.toLowerCase()))

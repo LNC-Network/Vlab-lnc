@@ -59,16 +59,18 @@ export default function Home() {
         setWidgets(widgets.filter((widget) => widget.id !== e.detail.id));
       }
     };
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     window.addEventListener(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       "deleteWidget" as any,
-      
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       handleDeleteWidgetEvent as any
     );
 
     return () => {
       window.removeEventListener(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         "deleteWidget" as any,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         handleDeleteWidgetEvent as any
       );
     };

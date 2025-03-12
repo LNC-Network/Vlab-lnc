@@ -15,6 +15,7 @@ interface SimulationCanvasProps {
 
 // Dynamic icon component
 const DynamicIcon = ({ name }: { name: string }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const IconComponent = (LucideIcons as any)[name.charAt(0).toUpperCase() + name.slice(1)] || LucideIcons.HelpCircle
   return <IconComponent className="h-6 w-6" />
 }
