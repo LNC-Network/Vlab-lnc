@@ -36,30 +36,42 @@ export default function Home() {
   useEffect(() => {
     const handleAddWidgetEvent = (e: CustomEvent) => {
       if (e.detail) {
-        setWidgets([...widgets, e.detail])
+        setWidgets([...widgets, e.detail]);
       }
-    }
-
-    window.addEventListener("addWidget" as any, handleAddWidgetEvent as any)
+    };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    window.addEventListener("addWidget" as any, handleAddWidgetEvent as any);
 
     return () => {
-      window.removeEventListener("addWidget" as any, handleAddWidgetEvent as any)
-    }
+      window.removeEventListener(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        "addWidget" as any,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        handleAddWidgetEvent as any
+      );
+    };
   }, [widgets])
 
   // Add event listener for widget deletion
   useEffect(() => {
     const handleDeleteWidgetEvent = (e: CustomEvent) => {
       if (e.detail && e.detail.id) {
-        setWidgets(widgets.filter((widget) => widget.id !== e.detail.id))
+        setWidgets(widgets.filter((widget) => widget.id !== e.detail.id));
       }
-    }
-
-    window.addEventListener("deleteWidget" as any, handleDeleteWidgetEvent as any)
+    };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    window.addEventListener(
+      "deleteWidget" as any,
+      
+      handleDeleteWidgetEvent as any
+    );
 
     return () => {
-      window.removeEventListener("deleteWidget" as any, handleDeleteWidgetEvent as any)
-    }
+      window.removeEventListener(
+        "deleteWidget" as any,
+        handleDeleteWidgetEvent as any
+      );
+    };
   }, [widgets])
 
   return (
