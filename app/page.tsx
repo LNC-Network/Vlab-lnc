@@ -165,7 +165,7 @@ export default function Home() {
             <ResizableHandle withHandle />
 
             {/* Code and Logic Editor */}
-            <ResizablePanel defaultSize={40} minSize={isDesktop ? 7 : 10}>
+            <ResizablePanel defaultSize={40} minSize={isDesktop ? 7 : 9}>
               <Tabs defaultValue="logic" className="h-full">
                 <TabsList className="mx-4 mt-2">
                   <TabsTrigger value="logic">Logic Editor</TabsTrigger>
